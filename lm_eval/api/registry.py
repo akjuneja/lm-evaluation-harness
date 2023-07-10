@@ -1,5 +1,4 @@
 import os
-import evaluate
 from lm_eval.api.model import LM
 
 MODEL_REGISTRY = {}
