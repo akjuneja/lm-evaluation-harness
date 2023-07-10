@@ -4,6 +4,7 @@ from dataclasses import dataclass, field, asdict
 import re
 import ast
 import yaml
+import evaluate
 import random
 import itertools
 import functools
