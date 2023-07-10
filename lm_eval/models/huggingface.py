@@ -112,7 +112,7 @@ class HFLM(LM):
                 self._device = (
                     torch.device("cuda")
                     if torch.cuda.is_available()
-                    else torch.device("cpu")
+                    else torch.device("mps")
                 )
         else:
             if device != "cuda":
