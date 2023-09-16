@@ -19,8 +19,8 @@ class LLMToolsModel(LM):
     def greedy_until(
             self, _requests
     ):
-        inputs = [x[0] for x in _requests]
-        until = [x[1] for x in _requests]
+        inputs = [x.args[0] for x in _requests]
+        until = [x.args[1] for x in _requests]
 
         responses = []
         for i in range(len(inputs)):
@@ -33,7 +33,9 @@ class LLMToolsModel(LM):
                 data = {
                     "doc": inputs[i] 
                 }
-                r = requests.post(url, json=data).json()
+                params = {"max_new_tokens": "1024"}
+                r = requests.post(url, json=data, params=params).json()
+                #r = requests.post(url, json=data).json()
                 responses.append(r["response"])
 
             except Exception as e:
